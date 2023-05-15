@@ -1,1 +1,2 @@
-0x16. C - Simple Shell
+Simple Shell ALX group project
+by Mathew Temilayo and Nnenna Okereke
