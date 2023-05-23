@@ -16,7 +16,7 @@ void _helperfunction()
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			printf("icandoit$ ");
+			printf("simpleshell$ ");
 		fig_char = getline(&str, &n, stdin);
 		if (fig_char == -1)
 		{
@@ -46,7 +46,7 @@ void prompt(char **av, char **env)
 	int status;
 
 	argv[0] = str;
-	ch_id = fork();
+i	ch_id = fork();
 	if (ch_id == -1)
 	{
 		free(str);
