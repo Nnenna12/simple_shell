@@ -1,23 +1,23 @@
 #include "shell.h"
 #include <sys/wait.h>
 
-int _helperfunction();
+void _helperfunction();
 /**
  * _helperfunction - function
  * Return: 0 always
  */
-int _helperfunction()
+void _helperfunction()
 {
 	char *str = NULL;
 	int j;
 	ssize_t fig_char;
-	ssize_t m = 0;
+	size_t n = 0;
 
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
 			printf("icandoit$ ");
-		fig_char = getline(&str, &m, stdin);
+		fig_char = getline(&str, &n, stdin);
 		if (fig_char == -1)
 		{
 			free(str);
@@ -30,7 +30,6 @@ int _helperfunction()
 			if (str[j] == '\n')
 				str[j] = 0;
 		}
-		return (0);
 	}
 }
 /**
@@ -43,7 +42,7 @@ void prompt(char **av, char **env)
 {
 	char *argv[] = {NULL, NULL};
 	pid_t ch_id;
-	char *str;
+	char *str = 0;
 	int status;
 
 	argv[0] = str;
