@@ -1,7 +1,7 @@
 #include "shell.h"
 #include <stdio.h>
 /**
- * print_lowercase - function that print salphabet
+ * print_lowercase - function that print alphabet
  * @b: parameter to be printed
  * Return: 1 if successful, 0 otherwise
  */
