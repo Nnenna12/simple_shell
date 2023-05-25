@@ -1,65 +1,163 @@
-#include <stdlib>
-
-char *error_12(char **args);
-char *error_13(char **args);
-
+#include "shell.h"
+char *error_env(char **args);
+char *error_1(char **args);
+char *error_2_exit(char **args);
+char *error_2_cd(char **args);
+char *error_2_syntax(char **args);
 /**
- * error_12 - function
+ * error_env - function
  * @args: array of argument
- * Return: error.
+ * Return: error
  */
-char *error_12(char **args)
+char *error_env(char **args)
 {
 	char *error, *hist_str;
 	int wen;
 
 	hist_str = _ito(hist);
 	if (!hist_str)
-	return (NULL);
-	wen = _strlen(name) + _strlen(hist_str) + _strlen(args[0]) + 24;
+		return (NULL);
+
+	args--;
+	wen = _strlen(name) + _strlen(hist_str) + _strlen(args[0]) + 45;
 	error = malloc(sizeof(char) * (wen + 1));
 	if (!error)
 	{
-	free(hist_str);
-	return (NULL);
+		free(hist_str);
+		return (NULL);
 	}
+
 	_strcpy(error, name);
 	_strcat(error, ": ");
 	_strcat(error, hist_str);
 	_strcat(error, ": ");
 	_strcat(error, args[0]);
-	_strcat(error, ": Permission denied\n");
-
+	_strcat(error, ": Unable to add/remove from environment\n");
 	free(hist_str);
 	return (error);
 }
 
 /**
- * error_13 -  function
+ * error_1 - function
+ * @args: array of argument
+ * Return: error.
+ */
+char *error_1(char **args)
+{
+	char *error;
+	int wen;
+
+	wen = _strlen(name) + _strlen(args[0]) + 13;
+	error = malloc(sizeof(char) * (wen + 1));
+	if (!error)
+		return (NULL);
+
+	_strcpy(error, "al: ");
+	_strcat(error, args[0]);
+	_strcat(error, " not found\n");
+
+	return (error);
+}
+
+
+/**
+ * error_2_exit - function
  * @args: array of argument
  * Return: error
  */
-char *error_13(char **args)
+char *error_2_exit(char **args)
 {
 	char *error, *hist_str;
 	int wen;
 
 	hist_str = _ito(hist);
 	if (!hist_str)
-	return (NULL);
-	wen = _strlen(name) + _strlen(hist_str) + _strlen(args[0]) + 16;
+		return (NULL);
+
+	wen = _strlen(name) + _strlen(hist_str) + _strlen(args[0]) + 27;
 	error = malloc(sizeof(char) * (wen + 1));
 	if (!error)
 	{
+		free(hist_str);
+		return (NULL);
+	}
+
+	_strcpy(error, name);
+	_strcat(error, ": ");
+	_strcat(error, hist_str);
+	_strcat(error, ": exit: Illegal number: ");
+	_strcat(error, args[0]);
+	_strcat(error, "\n");
+
 	free(hist_str);
-	return (NULL);
+	return (error);
+}
+
+
+/**
+ *  * error_2_cd - function
+ *   * @args: array of arguments
+ *    * Return: error
+ */
+char *error_2_cd(char **args)
+{
+	char *error, *hist_str;
+	int wen;
+
+	hist_str = _ito(hist);
+	if (!hist_str)
+		return (NULL);
+
+	if (args[0][0] == '-')
+		args[0][2] = '\0';
+	wen = _strlen(name) + _strlen(hist_str) + _strlen(args[0]) + 24;
+	error = malloc(sizeof(char) * (wen + 1));
+	if (!error)
+	{
+		free(hist_str);
+		return (NULL);
+	}
+
+	_strcpy(error, name);
+	_strcat(error, ": ");
+	_strcat(error, hist_str);
+	if (args[0][0] == '-')
+		_strcat(error, ": cd: Illegal option ");
+	else
+		strcat(error, ": cd: can't cd to ");
+	_strcat(error, args[0]);
+	_strcat(error, "\n");
+
+	free(hist_str);
+	return (error);
+}
+/**
+ * error_2_syntax - function
+ * @args: array of arguments
+ * Return: error
+ */
+char *error_2_syntax(char **args)
+{
+	char *error, *hist_str;
+	int wen;
+
+	hist_str = _ito(hist);
+	if (!hist_str)
+		return (NULL);
+
+	wen = _strlen(name) + _strlen(hist_str) + _strlen(args[0]) + 33;
+	error = malloc(sizeof(char) * (wen + 1));
+	if (!error)
+	{
+		free(hist_str);
+		return (NULL);
 	}
 	_strcpy(error, name);
 	_strcat(error, ": ");
 	_strcat(error, hist_str);
-	_strcat(error, ": ");
+	_strcat(error, ": Syntax error: \"");
 	_strcat(error, args[0]);
-	_strcat(error, ": not found\n");
+	_strcat(error, "\" unexpected\n");
 
 	free(hist_str);
 	return (error);

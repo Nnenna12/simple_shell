@@ -92,11 +92,11 @@ int create_error(char **args, int er)
 	else
 	error = error_2_cd(args);
 	break;
-	case 126:
-	error = error_126(args);
+	case 12:
+	error = error_12(args);
 	break;
-	case 127:
-	error = error_127(args);
+	case 13:
+	error = error_13(args);
 	break;
 	}
 	write(STDERR_FILENO, error, _strlen(error));
