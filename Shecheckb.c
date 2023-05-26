@@ -1,4 +1,6 @@
+#include <stdlib.h>
 #include "shell.h"
+#include <stddef.h>
 
 void help_all(void);
 void help_al(void);

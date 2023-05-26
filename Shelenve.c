@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "shell.h"
 
 char **_copyenv(void);
@@ -59,7 +60,7 @@ char **_getenv(const char *var)
 	wen = _strlen(var);
 	for (dex = 0; environ[dex]; dex++)
 	{
-	if (_strncmp(var, environ[dex], len) == 0)
+	if (_strncmp(var, environ[dex], wen) == 0)
 	return (&environ[dex]);
 	}
 	return (NULL);

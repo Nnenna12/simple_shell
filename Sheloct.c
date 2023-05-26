@@ -1,3 +1,6 @@
+#include <stddef.h>
+#include "shell.h"
+
 char *_strchr(char *str, char c);
 int _strspn(char *str, char *accept);
 int _strcmp(char *str1, char *str2);
@@ -81,7 +84,7 @@ int _strncmp(const char *str1, const char *str2, size_t m)
 		if (str1[j] > str2[j])
 			return (str1[j] - str2[j]);
 		else if (str1[j] < str2[j])
-			return (stt1[j] - str2[j]);
+			return (str1[j] - str2[j]);
 	}
 	if (j == m)
 		return (0);

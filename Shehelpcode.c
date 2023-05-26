@@ -1,4 +1,7 @@
+#include <stdlib.h>
 #include "shell.h"
+#include <stddef.h>
+
 void handle_line(char **ln, ssize_t r);
 ssize_t get_new_wen(char *ln);
 void logical_ops(char *ln, ssize_t *new_wen);

@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "shell.h"
 
 int shel_exit(char **args, char **fnt);
 int shel_cd(char **args, char __attribute__((__unused__)) **fnt);
@@ -94,7 +95,7 @@ int shel_cd(char **args, char __attribute__((__unused__)) **fnt)
 	args[0][1] == '\0')
 	{
 	if (getenv("OLDPWD") != NULL)
-	(chdir(*_getenv("OLDPWD") + 7));
+	(chdir(*getenv("OLDPWD") + 7));
 	}
 	else
 	{
@@ -116,8 +117,8 @@ int shel_cd(char **args, char __attribute__((__unused__)) **fnt)
 	}
 	else
 	{
-	if (_getenv("HOME") != NULL)
-	chdir(*(_getenv("HOME")) + 5);
+	if (getenv("HOME") != NULL)
+	chdir(*(getenv("HOME")) + 5);
 	}
 	pwd = getcwd(pwd, 0);
 	if (!pwd)

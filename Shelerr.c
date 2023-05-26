@@ -1,4 +1,5 @@
-#include <stdlib>
+#include <stdlib.h>
+#include "shell.h"
 
 int num_wen(int n);
 char *_ito(int n);

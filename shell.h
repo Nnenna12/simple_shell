@@ -113,7 +113,7 @@ void help_history(void);
 char **_copyenv(void);
 void free_env(void);
 char **_getenv(const char *var);
-ar **_copyenv(void);
+char **_copyenv(void);
 void free_env(void);
 char **_getenv(const char *var);
 

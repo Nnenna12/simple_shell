@@ -1,3 +1,7 @@
+#include <stddef.h>
+#include "shell.h"
+#include <stddef>
+
 int _strlen(const char *c);
 char *_strcpy(char *ds, const char *sc);
 char *_strcat(char *ds, const char *sc);
@@ -72,5 +76,5 @@ char *_strncat(char *ds, const char *sc, size_t m)
 		ds[ds_wen + j] = sc[j];
 	ds[ds_wen + j] = '\0';
 
-	return (dst);
+	return (ds);
 }

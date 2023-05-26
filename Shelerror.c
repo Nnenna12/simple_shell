@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include "shell.h"
+#include <stddef.h>
 
 char *error_12(char **args);
 char *error_13(char **args);

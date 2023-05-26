@@ -1,4 +1,6 @@
+#include <stdlib.h>
 #include "shell.h"
+
 void free_arg(char **args, char **fnt);
 char *get_pid(void);
 char *get_env_val(char *ben, int wen);

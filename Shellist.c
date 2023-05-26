@@ -1,4 +1,6 @@
+#include <stdlib.h>
 #include "shell.h"
+
 al_t *add_al_end(al_t **head, char *name, char *val);
 void free_al_list(al_t *head);
 list_t *add_node_end(list_t **head, char *dir);

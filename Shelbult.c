@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "shell.h"
 
 int shel_al(char **args, char __attribute__((__unused__)) **fnt);
 void set_al(char *var_name, char *val);
@@ -27,7 +28,7 @@ int shel_al(char **args, char __attribute__((__unused__)) **fnt)
 	}
 	for (j = 0; args[j]; j++)
 	{
-	temp = als;
+	temp = abs;
 	val = _strchr(args[j], '=');
 	if (!val)
 	{
@@ -83,7 +84,7 @@ void set_al(char *var_name, char *val)
 	temp = temp->next;
 	}
 	if (!temp)
-	add_al_end(&als, var_name, new_val);
+	add_al_end(&abs, var_name, new_val);
 }
 
 /**
@@ -121,7 +122,7 @@ char **replace_al(char **args)
 	return (args);
 	for (j = 0; args[j]; j++)
 	{
-	temp = als;
+	temp = abs;
 	while (temp)
 	{
 	if (_strcmp(args[j], temp->name) == 0)

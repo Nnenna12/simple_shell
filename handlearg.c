@@ -1,4 +1,6 @@
+#include <stdlib.h>
 #include "shell.h"
+
 char *get_arg(char *ln, int *exec_ret);
 int call_arg(char **args, char **front, int *exec_ret);
 int run_arg(char **args, char **fnt, int *exec_ret);
